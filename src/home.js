@@ -15,6 +15,7 @@ const Home = () => {
 
     },[])
 //new commit
+
     return ( 
         <div className="home">
             <BlogList blog={blog} title='All blogs' handleDelete={handleDelete}/>
