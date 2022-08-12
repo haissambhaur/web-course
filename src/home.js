@@ -3,11 +3,7 @@ import { useEffect,useState } from "react";
  
 const Home = () => {
 
-    const [blog,setBlog]=useState([
-        { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
-        { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
-        { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
-    ]);
+    const [blog,setBlog]=useState(null);
     
     const [name, setName]=useState('Haissam')
     const handleDelete=(id)=>{
@@ -15,10 +11,10 @@ const Home = () => {
         setBlog(editedBlogs);
     }
     useEffect(()=>{
-        console.log('useEffect activated');
-        console.log({name});
-    },[name])
+        fetch('http://localhost:8000/blogs')
 
+    },[])
+//new commit
     return ( 
         <div className="home">
             <BlogList blog={blog} title='All blogs' handleDelete={handleDelete}/>
@@ -28,5 +24,5 @@ const Home = () => {
         </div>
      );
 }
- 
+
 export default Home;
